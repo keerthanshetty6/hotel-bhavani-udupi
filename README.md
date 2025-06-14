@@ -1,2 +1,2 @@
 # hotel-bhavani-udupi
-Hotel Bhavani Udupi
+Hotel Bhavani Udupi website design
