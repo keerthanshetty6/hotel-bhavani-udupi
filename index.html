@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Bhavani Udupi - Experience Unmatched Luxury</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #f0f8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #d4af37;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #b8941f;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* Rooms */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .room-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .room-price {
+            font-size: 1.3rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Contact */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">HOTEL BHAVANI UDUPI</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>EXPERIENCE UNMATCHED LUXURY</h1>
+            <p>Discover a world of comfort and elegance at Hotel Bhavani Udupi</p>
+            <a href="#contact" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT HOTEL BHAVANI UDUPI</h2>
+            <div class="about-content">
+                <p>Located in the cultural heart of Udupi, Hotel Bhavani combines traditional Indian hospitality with modern comfort. Experience authentic Karnataka culture, delicious local cuisine, and warm service that makes every guest feel at home.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>🏨 Premium Accommodations</h3>
+                        <p>Comfortable rooms with modern amenities and traditional touches</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🍛 Authentic Cuisine</h3>
+                        <p>Traditional Udupi delicacies and South Indian specialties</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🙏 Warm Hospitality</h3>
+                        <p>Experience the legendary hospitality of Karnataka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms">
+        <div class="container">
+            <h2 class="section-title">OUR ROOMS</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <h3>Standard Room</h3>
+                    <p>Comfortable rooms with essential amenities for a pleasant stay</p>
+                    <div class="room-price">₹2,500/night</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="room-card">
+                    <h3>Deluxe Room</h3>
+                    <p>Spacious rooms with additional amenities and better views</p>
+                    <div class="room-price">₹3,500/night</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+                <div class="room-card">
+                    <h3>Family Suite</h3>
+                    <p>Perfect for families with separate living area and extra space</p>
+                    <div class="room-price">₹5,000/night</div>
+                    <a href="#contact" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">CONTACT US</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div>
+                        <h3>📍 Address</h3>
+                        <p>Hotel Bhavani<br>
+                        [Your Street Address]<br>
+                        Udupi, Karnataka, India - 576101</p>
+                    </div>
+                    <br>
+                    <div>
+                        <h3>📞 Phone</h3>
+                        <p>+91 [Your Phone Number]</p>
+                    </div>
+                    <br>
+                    <div>
+                        <h3>📧 Email</h3>
+                        <p>[Your Email Address]</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Make a Reservation</h3>
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number (+91)" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="roomType" required>
+                                <option value="">Select Room Type</option>
+                                <option value="standard">Standard Room - ₹2,500</option>
+                                <option value="deluxe">Deluxe Room - ₹3,500</option>
+                                <option value="family">Family Suite - ₹5,000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="checkout" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="requests" placeholder="Special Requests (Optional)"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hotel Bhavani Udupi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form handling
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const roomType = formData.get('roomType');
+            const checkin = formData.get('checkin');
+            const checkout = formData.get('checkout');
+            
+            if (name && email && phone && roomType && checkin && checkout) {
+                alert(`Thank you ${name}! Your reservation request has been submitted. We will contact you shortly.`);
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('input[name="checkin"]').setAttribute('min', today);
+        
+        // Set minimum checkout date based on checkin
+        document.querySelector('input[name="checkin"]').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            checkinDate.setDate(checkinDate.getDate() + 1);
+            const minCheckout = checkinDate.toISOString().split('T')[0];
+            document.querySelector('input[name="checkout"]').setAttribute('min', minCheckout);
+        });
+    </script>
+</body>
+</html>
