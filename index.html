@@ -90,6 +90,89 @@
             width: 100%;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding-top: 80px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-menu li {
+            padding: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding-left: 40px;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -522,8 +605,21 @@
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
 
             .section-title {
@@ -545,6 +641,45 @@
 
             .rooms-grid {
                 grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .room-card {
+                padding: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
         }
 
@@ -571,8 +706,21 @@
                 <li><a href="#rooms">Rooms</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
         </nav>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+        <ul>
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#rooms" onclick="closeMobileMenu()">Rooms</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero">
         <div class="hero-content">
@@ -651,54 +799,45 @@
                     <div class="contact-item fade-in">
                         <h3>📞 Phone</h3>
                         <p><a href="tel:08202526980">0820-2526980</a></p>
-                        <p><small>Call one day before arrival<br>Working hours: 6 AM to 10 PM</small></p>
+                        <p><small>Call one day before arrival<br>Working hours: 9 AM - 9 PM</small></p>
                     </div>
                     <div class="contact-item fade-in">
                         <h3>📍 Location</h3>
-                        <p>Hotel Bhavani<br>Udupi, Karnataka, India</p>
-                        <p><a href="https://maps.app.goo.gl/rUqgw5P26rpN5SKT9" target="_blank">View on Google Maps</a></p>
+                        <p>Near Udupi Sri Krishna Temple<br>Udupi, Karnataka, India</p>
                     </div>
                     <div class="contact-item fade-in">
-                        <h3>💬 WhatsApp</h3>
-                        <p>Quick booking and inquiries</p>
-                        <p><a href="javascript:void(0)" onclick="openWhatsApp()">Message us on WhatsApp</a></p>
+                        <h3>✉️ Email</h3>
+                        <p><a href="mailto:info@hotelbhavaniudupi.com">info@hotelbhavaniudupi.com</a></p>
                     </div>
                 </div>
-                
-                <div class="contact-form fade-in">
-                    <h3>Make a Reservation</h3>
-                    <form id="reservationForm">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Full Name" required>
+                <div class="contact-form">
+                    <h3>Book Your Room</h3>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Phone Number" required>
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="Email Address" required>
+                                <input type="date" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" name="phone" placeholder="Phone Number" required>
+                                <select required>
+                                    <option value="">Select Room Type</option>
+                                    <option value="single">Single Room - ₹400/night</option>
+                                    <option value="double-single">Double Room (Single) - ₹500/night</option>
+                                    <option value="double-tv">Double Room with TV - ₹600/night</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <select name="roomType" required>
-                                <option value="">Select Room Type</option>
-                                <option value="Single Room - ₹400">Single Room - ₹400</option>
-                                <option value="Double Room Single Occupancy - ₹500">Double Room Single Occupancy - ₹500</option>
-                                <option value="Double Room with TV - ₹600">Double Room with TV - ₹600</option>
-                            </select>
+                            <textarea placeholder="Special Requirements (Optional)" rows="4"></textarea>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="date" name="checkin" placeholder="Check-in Date" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="date" name="checkout" placeholder="Check-out Date" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Special Requests (Optional)" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send WhatsApp Message</button>
+                        <button type="submit" class="submit-btn">Book Now</button>
                     </form>
                 </div>
             </div>
@@ -707,12 +846,27 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Hotel Bhavani Udupi. All rights reserved.</p>
+            <p>&copy; 2024 Hotel Bhavani Udupi. All rights reserved. | Experience Authentic Karnataka Hospitality</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.mobile-overlay');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.mobile-overlay');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -726,7 +880,7 @@
             });
         });
 
-        // Scroll animations
+        // Fade in animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -744,6 +898,38 @@
             observer.observe(el);
         });
 
+        // Book room functionality
+        function bookRoom(roomType, price) {
+            // Scroll to contact section
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Pre-select the room type in the form
+            setTimeout(() => {
+                const roomSelect = document.querySelector('select');
+                if (roomSelect) {
+                    const options = roomSelect.options;
+                    for (let i = 0; i < options.length; i++) {
+                        if (options[i].text.includes(roomType)) {
+                            roomSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }, 500);
+        }
+
+        // Form submission with WhatsApp integration
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = document.querySelector('input[placeholder="Your Name"]').value;
+            const phone = document.querySelector('input[placeholder="Phone Number"]').value;
+            const date = document.querySelector('input[type
+
         // Header background change on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
@@ -753,99 +939,3 @@
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
             }
         });
-
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        const checkinInput = document.querySelector('input[name="checkin"]');
-        const checkoutInput = document.querySelector('input[name="checkout"]');
-
-        if (checkinInput) {
-            checkinInput.setAttribute('min', today);
-        }
-
-        // Set minimum checkout date based on checkin
-        if (checkinInput && checkoutInput) {
-            checkinInput.addEventListener('change', function() {
-                const checkinDate = new Date(this.value);
-                checkinDate.setDate(checkinDate.getDate() + 1);
-                const minCheckout = checkinDate.toISOString().split('T')[0];
-                checkoutInput.setAttribute('min', minCheckout);
-            });
-        }
-
-        // WhatsApp functionality
-        function openWhatsApp(roomType = '', price = '') {
-            const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
-            let message = `Hello Hotel Bhavani Udupi!
-
-I would like to make a booking inquiry.`;
-
-            if (roomType && price) {
-                message += `
-
-Room Type: ${roomType}
-Price: ₹${price}/night
-
-Please confirm availability and provide booking details.`;
-            } else {
-                message += `
-
-Please provide information about room availability and booking process.`;
-            }
-
-            message += `
-
-Thank you!`;
-
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-        }
-
-        // Book room function
-        function bookRoom(roomType, price) {
-            openWhatsApp(roomType, price);
-        }
-
-        // Form submission
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const roomType = formData.get('roomType');
-            const checkin = formData.get('checkin');
-            const checkout = formData.get('checkout');
-            const message = formData.get('message');
-
-            if (name && email && phone && roomType && checkin && checkout) {
-                const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
-                
-                const bookingMessage = `Hotel Bhavani Udupi - Booking Request
-
-👤 Name: ${name}
-📧 Email: ${email}
-📱 Phone: ${phone}
-🏨 Room Type: ${roomType}
-📅 Check-in: ${checkin}
-📅 Check-out: ${checkout}
-💬 Message: ${message || 'None'}
-
-Please confirm availability and booking details.
-
-Thank you!`;
-
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(bookingMessage)}`;
-                window.open(whatsappURL, '_blank');
-                
-                // Show success message
-                alert(`Thank you ${name}! Your booking request has been sent via WhatsApp. We will contact you shortly.`);
-                this.reset();
-            } else {
-                alert('Please fill in all required fields.');
-            }
-        });
-    </script>
-</body>
-</html>
