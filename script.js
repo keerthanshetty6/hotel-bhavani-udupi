@@ -56,7 +56,7 @@ Check-out: ${checkout}
 Please confirm availability and pricing.`
 
       // Replace with your actual WhatsApp number
-      const whatsappNumber = "91XXXXXXXXXX"
+      const whatsappNumber = "917259468825"
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
       // Open WhatsApp
