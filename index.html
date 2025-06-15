@@ -3,563 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Bhavani Udupi - Experience Authentic Hospitality</title>
+    <title>Hotel Bhavani Udupi - Best Hotel in Udupi | Budget Hotel | Cheap Hotel City Center</title>
+    <meta name="description" content="Hotel Bhavani Udupi - Best hotel in Udupi offering budget accommodation and cheap hotel rates in city center. Experience authentic Karnataka hospitality near Sri Krishna Temple and Malpe Beach.">
+    <meta name="keywords" content="best hotel in udupi, budget hotel udupi, cheap hotel udupi, udupi city center hotel, hotel near sri krishna temple, malpe beach hotel, affordable accommodation udupi, budget stay udupi, hotel bhavani udupi, udupi hotels, karnataka hotels">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c3e50;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: #d4af37;
-            transform: translateY(-2px);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: #d4af37;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.8), rgba(44, 62, 80, 0.8)),
-                        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="300" r="150" fill="white" opacity="0.1"/><circle cx="800" cy="200" r="100" fill="white" opacity="0.08"/><circle cx="300" cy="700" r="120" fill="white" opacity="0.06"/><circle cx="700" cy="800" r="80" fill="white" opacity="0.1"/></svg>');
-            animation: float 20s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero-content {
-            max-width: 900px;
-            padding: 0 2rem;
-            z-index: 2;
-            position: relative;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-divider {
-            width: 120px;
-            height: 3px;
-            background: linear-gradient(90deg, #d4af37, #f1c40f);
-            margin: 0 auto 2rem;
-            border-radius: 2px;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            line-height: 1.8;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #d4af37, #f1c40f);
-            color: white;
-            padding: 18px 45px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(45deg, #f1c40f, #d4af37);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
-        section {
-            padding: 120px 0;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #2c3e50;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #d4af37, #f1c40f);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M0,500 Q250,300 500,500 T1000,500 L1000,1000 L0,1000 Z" fill="white" opacity="0.1"/></svg>');
-            background-size: cover;
-        }
-
-        .about-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 4rem;
-            color: #555;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Rooms Section */
-        .rooms {
-            background: white;
-        }
-
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .room-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-            border-radius: 25px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .room-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #d4af37, #f1c40f);
-        }
-
-        .room-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .room-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-        }
-
-        .room-card p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .room-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .book-btn {
-            background: linear-gradient(45deg, #2c3e50, #34495e);
-            color: white;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .book-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="100" cy="100" r="50" fill="white" opacity="0.05"/><circle cx="900" cy="200" r="80" fill="white" opacity="0.03"/><circle cx="200" cy="800" r="60" fill="white" opacity="0.04"/></svg>');
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact .section-title::after {
-            background: linear-gradient(90deg, #d4af37, #f1c40f);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-item h3 {
-            font-family: 'Playfair Display', serif;
-            color: #d4af37;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-item p {
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .contact-item a {
-            color: #d4af37;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #f1c40f;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-form h3 {
-            font-family: 'Playfair Display', serif;
-            color: #d4af37;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #d4af37;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .form-group select option {
-            background: #2c3e50;
-            color: white;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #d4af37, #f1c40f);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a252f;
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .rooms-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
@@ -585,31 +33,31 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title fade-in">Welcome to Hotel Bhavani</h2>
+            <h2 class="section-title fade-in">Welcome to Hotel Bhavani - Best Hotel in Udupi</h2>
             <div class="about-content">
                 <p class="about-text fade-in">
-                    Located in the cultural heart of Udupi, Hotel Bhavani offers comfortable accommodations with authentic local hospitality. Our hotel combines traditional warmth with budget-friendly stays, making it the perfect choice for pilgrims, tourists, and business travelers visiting this sacred city.
+                    Located in the cultural heart of Udupi city center, Hotel Bhavani offers comfortable budget hotel accommodations with authentic local hospitality. Our cheap hotel combines traditional warmth with affordable stays, making it the perfect choice for pilgrims, tourists, and business travelers visiting this sacred city. We pride ourselves on being the best hotel in Udupi for value and service.
                 </p>
                 
                 <div class="features-grid">
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🏨</span>
-                        <h3>Comfortable Rooms</h3>
-                        <p>Well-appointed rooms with all essential amenities for a pleasant stay in Udupi</p>
+                        <h3>Budget Hotel Comfort</h3>
+                        <p>Well-appointed rooms with all essential amenities for a pleasant budget stay in Udupi city center</p>
                     </div>
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🏛️</span>
                         <h3>Sri Krishna Temple</h3>
-                        <p>Visit the famous Udupi Sri Krishna Matha, just minutes away from our hotel</p>
+                        <p>Visit the famous Udupi Sri Krishna Matha, just minutes away from our cheap hotel</p>
                     </div>
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🙏</span>
-                        <h3>Warm Hospitality</h3>
-                        <p>Experience the Best hospitality and warmth</p>
+                        <h3>Best Hotel Service</h3>
+                        <p>Experience the best hospitality and warmth that makes us the top choice in Udupi</p>
                     </div>
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🏖️</span>
-                        <h3>Malpe Beach</h3>
+                        <h3>Malpe Beach Access</h3>
                         <p>Relax at the pristine Malpe Beach, just 6km away with golden sands and water sports</p>
                     </div>
                 </div>
@@ -619,23 +67,23 @@
 
     <section id="rooms" class="rooms">
         <div class="container">
-            <h2 class="section-title fade-in">Our Rooms</h2>
+            <h2 class="section-title fade-in">Our Budget Hotel Rooms</h2>
             <div class="rooms-grid">
                 <div class="room-card fade-in">
                     <h3>Single Room</h3>
-                    <p>Perfect for solo travelers, our single rooms offer comfort and privacy with all basic amenities.</p>
+                    <p>Perfect for solo travelers, our cheap hotel single rooms offer comfort and privacy with all basic amenities in Udupi city center.</p>
                     <div class="room-price">₹400/night</div>
                     <button class="book-btn" onclick="bookRoom('Single Room', '400')">Book Now</button>
                 </div>
                 <div class="room-card fade-in">
                     <h3>Double Room (Single Occupancy)</h3>
-                    <p>Spacious double rooms for single occupancy with extra comfort and space for your belongings.</p>
+                    <p>Spacious double rooms for single occupancy with extra comfort and space - best value in our budget hotel.</p>
                     <div class="room-price">₹500/night</div>
                     <button class="book-btn" onclick="bookRoom('Double Room Single Occupancy', '500')">Book Now</button>
                 </div>
                 <div class="room-card fade-in">
                     <h3>Double Room with TV</h3>
-                    <p>Double occupancy rooms equipped with television and enhanced amenities for your entertainment.</p>
+                    <p>Double occupancy rooms equipped with television and enhanced amenities - the best hotel experience in Udupi.</p>
                     <div class="room-price">₹600/night</div>
                     <button class="book-btn" onclick="bookRoom('Double Room with TV', '600')">Book Now</button>
                 </div>
@@ -645,7 +93,7 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Contact Us</h2>
+            <h2 class="section-title fade-in">Contact Best Hotel in Udupi</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item fade-in">
@@ -654,13 +102,13 @@
                         <p><small>Call one day before arrival<br>Working hours: 6 AM to 10 PM</small></p>
                     </div>
                     <div class="contact-item fade-in">
-                        <h3>📍 Location</h3>
-                        <p>Hotel Bhavani<br>Udupi, Karnataka, India</p>
+                        <h3>📍 Location - City Center</h3>
+                        <p>Hotel Bhavani<br>Udupi City Center, Karnataka, India</p>
                         <p><a href="https://maps.app.goo.gl/rUqgw5P26rpN5SKT9" target="_blank">View on Google Maps</a></p>
                     </div>
                     <div class="contact-item fade-in">
                         <h3>💬 WhatsApp</h3>
-                        <p>Quick booking and inquiries</p>
+                        <p>Quick booking and inquiries for budget hotel</p>
                         <p><a href="javascript:void(0)" onclick="openWhatsApp()">Message us on WhatsApp</a></p>
                     </div>
                 </div>
@@ -707,145 +155,10 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Hotel Bhavani Udupi. All rights reserved.</p>
+            <p>&copy; 2024 Hotel Bhavani Udupi - Best Hotel in Udupi | Budget Hotel | Cheap Hotel City Center. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        const checkinInput = document.querySelector('input[name="checkin"]');
-        const checkoutInput = document.querySelector('input[name="checkout"]');
-
-        if (checkinInput) {
-            checkinInput.setAttribute('min', today);
-        }
-
-        // Set minimum checkout date based on checkin
-        if (checkinInput && checkoutInput) {
-            checkinInput.addEventListener('change', function() {
-                const checkinDate = new Date(this.value);
-                checkinDate.setDate(checkinDate.getDate() + 1);
-                const minCheckout = checkinDate.toISOString().split('T')[0];
-                checkoutInput.setAttribute('min', minCheckout);
-            });
-        }
-
-        // WhatsApp functionality
-        function openWhatsApp(roomType = '', price = '') {
-            const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
-            let message = `Hello Hotel Bhavani Udupi!
-
-I would like to make a booking inquiry.`;
-
-            if (roomType && price) {
-                message += `
-
-Room Type: ${roomType}
-Price: ₹${price}/night
-
-Please confirm availability and provide booking details.`;
-            } else {
-                message += `
-
-Please provide information about room availability and booking process.`;
-            }
-
-            message += `
-
-Thank you!`;
-
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-        }
-
-        // Book room function
-        function bookRoom(roomType, price) {
-            openWhatsApp(roomType, price);
-        }
-
-        // Form submission
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const roomType = formData.get('roomType');
-            const checkin = formData.get('checkin');
-            const checkout = formData.get('checkout');
-            const message = formData.get('message');
-
-            if (name && email && phone && roomType && checkin && checkout) {
-                const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
-                
-                const bookingMessage = `Hotel Bhavani Udupi - Booking Request
-
-👤 Name: ${name}
-📧 Email: ${email}
-📱 Phone: ${phone}
-🏨 Room Type: ${roomType}
-📅 Check-in: ${checkin}
-📅 Check-out: ${checkout}
-💬 Message: ${message || 'None'}
-
-Please confirm availability and booking details.
-
-Thank you!`;
-
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(bookingMessage)}`;
-                window.open(whatsappURL, '_blank');
-                
-                // Show success message
-                alert(`${name}, you will now be redirected to WhatsApp to send your reservation request. Please make sure to send the message to complete your booking request.`);
-                this.reset();
-            } else {
-                alert('Please fill in all required fields.');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
