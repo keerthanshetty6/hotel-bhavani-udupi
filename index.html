@@ -812,14 +812,14 @@ Thank you!`;
             
             const formData = new FormData(this);
             const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
+            const email = formData.get('email') || 'None';
+            const phone = formData.get('phone') || 'None';
             const roomType = formData.get('roomType');
             const checkin = formData.get('checkin');
             const checkout = formData.get('checkout');
             const message = formData.get('message');
 
-            if (name && email && phone && roomType && checkin && checkout) {
+            if (name && roomType && checkin && checkout) {
                 const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
                 
                 const bookingMessage = `Hotel Bhavani Udupi - Booking Request
@@ -840,7 +840,7 @@ Thank you!`;
                 window.open(whatsappURL, '_blank');
                 
                 // Show success message
-                alert(`Thank you ${name}! Your booking request has been sent via WhatsApp. We will contact you shortly.`);
+                alert(`${name}, you will now be redirected to WhatsApp to send your reservation request. Please make sure to send the message to complete your booking request.`);
                 this.reset();
             } else {
                 alert('Please fill in all required fields.');
