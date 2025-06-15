@@ -28,7 +28,7 @@ if (menuBtn && navMenu) {
   })
 }
 
-// Reservation form handling with improved UX
+// Reservation form handling
 const reservationForm = document.getElementById("reservationForm")
 if (reservationForm) {
   reservationForm.addEventListener("submit", function (e) {
@@ -36,50 +36,36 @@ if (reservationForm) {
 
     const formData = new FormData(this)
     const name = formData.get("name")
-    const email = formData.get("email") || "" // Optional
-    const phone = formData.get("phone") || "" // Optional
+    const email = formData.get("email")
+    const phone = formData.get("phone")
     const roomType = formData.get("roomType")
     const checkin = formData.get("checkin")
     const checkout = formData.get("checkout")
 
-    // Only validate required fields: name, roomType, checkin, checkout
-    if (!name || !roomType || !checkin || !checkout) {
-      alert("Please fill in all required fields: Name, Room Type, Check-in Date, and Check-out Date.")
-      return
-    }
-
-    // Create WhatsApp message with optional fields
-    let message = `Hotel Bhavani Udupi - New Reservation Request
+    if (name && email && phone && roomType && checkin && checkout) {
+      // Create WhatsApp message
+      const message = `Hotel Bhavani Udupi - New Reservation Request
 
 Name: ${name}
+Email: ${email}
+Phone: ${phone}
 Room Type: ${roomType}
 Check-in: ${checkin}
-Check-out: ${checkout}`
+Check-out: ${checkout}
 
-    // Add optional fields only if provided
-    if (email) {
-      message += `\nEmail: ${email}`
-    }
-    if (phone) {
-      message += `\nPhone: ${phone}`
-    }
+Please confirm availability and pricing.`
 
-    message += `\n\nPlease confirm availability and pricing.`
+      // Replace with your actual WhatsApp number
+      const whatsappNumber = "91XXXXXXXXXX"
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
-    // Replace with your actual WhatsApp number
-    const whatsappNumber = "917259468825"
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
-
-    // Improved UX: Show confirmation before opening WhatsApp
-    const confirmMessage = `${name}, you will now be redirected to WhatsApp to send your reservation request. Please make sure to send the message to complete your booking request.`
-    
-    if (confirm(confirmMessage)) {
       // Open WhatsApp
       window.open(whatsappURL, "_blank")
-      
-      // Show a more appropriate message
-      alert("WhatsApp has been opened with your reservation details. Please send the message to complete your booking request.")
+
+      alert(`Thank you ${name}! Your reservation request has been sent via WhatsApp.`)
       this.reset()
+    } else {
+      alert("Please fill in all required fields.")
     }
   })
 }
@@ -134,4 +120,3 @@ document.querySelectorAll(".room-card, .amenity-item, .feature").forEach((el) =>
   el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
   observer.observe(el)
 })
-
