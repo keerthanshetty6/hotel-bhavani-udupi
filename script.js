@@ -82,7 +82,7 @@ function createFormSuccessPage() {
     const style = document.createElement('style');
     style.textContent = `
         .form-success-page {
-            min-height: 100vh;
+            height: 100vh;
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             display: flex;
             align-items: center;
