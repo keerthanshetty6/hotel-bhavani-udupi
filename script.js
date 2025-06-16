@@ -67,9 +67,9 @@ function createFormSuccessPage() {
         <div class="container">
             <div class="success-content">
                 <div class="success-icon">✅</div>
-                <h1>Booking Request Sent Successfully!</h1>
-                <p>Thank you for choosing Hotel Bhavani Udupi. Your booking request has been sent via WhatsApp.</p>
-                <p>We will contact you shortly to confirm your reservation.</p>
+                <h1>Booking Request Ready!</h1>
+                <p>We've opened WhatsApp for you to send your reservation confirmation to Hotel Bhavani Udupi.</p>
+                <p>Just hit send to complete your request. Thank you for choosing us!</p>
                 <div class="success-actions">
                     <button onclick="navigateToHome()" class="back-btn">Back to Home</button>
                     <a href="tel:08202526980" class="call-btn">Call Us Now</a>
