@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 * {
     margin: 0;
     padding: 0;
@@ -555,3 +558,18 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
+
+.form-success-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+    position: relative;
+}
+
+.form-success-page .success-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
