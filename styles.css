@@ -116,7 +116,11 @@ body {
     max-width: 900px;
     padding: 0 2rem;
     z-index: 2;
-    position: relative;
+    position: absolute; /* Changed from relative to absolute */
+    top: 50%; /* Added to center vertically */
+    left: 50%; /* Added to center horizontally */
+    transform: translate(-50%, -50%); /* Added to center precisely */
+    text-align: center; /* Ensure text remains centered within this block */
 }
 
 .hero-title {
@@ -551,4 +555,3 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
-
