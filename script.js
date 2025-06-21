@@ -1,3 +1,20 @@
+// Cache the phone number
+let phoneNumber = null;
+
+async function getPhoneNumber() {
+  if (phoneNumber) return phoneNumber;
+  
+  try {
+    const response = await fetch('/api/config');
+    const config = await response.json();
+    phoneNumber = config.phone;
+    return phoneNumber;
+  } catch (error) {
+    console.error('Failed to load phone number:', error);
+    throw new Error('Could not load contact information');
+  }
+}
+
 // Simple client-side routing
 function initializeRouting() {
     // Handle browser back/forward buttons
@@ -270,32 +287,42 @@ if (checkinInput && checkoutInput) {
     });
 }
 
-// WhatsApp functionality
-function openWhatsApp(roomType = '', price = '') {
-    const phoneNumber = process.env.NEXT_PUBLIC_PHONE; // Replace with your actual WhatsApp number
-    let message = `Hello Hotel Bhavani Udupi!
+// WhatsApp functionality - Updated to use API
+async function openWhatsApp(roomType = '', price = '') {
+    try {
+        const phone = await getPhoneNumber();
+        
+        if (!phone) {
+            alert('Contact information unavailable. Please try again.');
+            return;
+        }
+
+        let message = `Hello Hotel Bhavani Udupi!
 
 I would like to make a booking inquiry.`;
 
-    if (roomType && price) {
-        message += `
+        if (roomType && price) {
+            message += `
 
 Room Type: ${roomType}
 Price: ₹${price}/night
 
 Please confirm availability and provide booking details.`;
-    } else {
-        message += `
+        } else {
+            message += `
 
 Please provide information about room availability and booking process.`;
-    }
+        }
 
-    message += `
+        message += `
 
 Thank you!`;
 
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
+        const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    } catch (error) {
+        alert('Unable to load contact information. Please try again later.');
+    }
 }
 
 // Book room function
@@ -303,33 +330,34 @@ function bookRoom(roomType, price) {
     openWhatsApp(roomType, price);
 }
 
-// Form submission
+// Form submission - Updated to use API
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize routing
     initializeRouting();
     
     const reservationForm = document.getElementById('reservationForm');
     if (reservationForm) {
-        reservationForm.addEventListener('submit', function(e) {
+        reservationForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const roomType = formData.get('roomType');
-            const checkin = formData.get('checkin');
-            const checkout = formData.get('checkout');
-            const message = formData.get('message');
-
-            if (name && email && phone && roomType && checkin && checkout) {
-                const phoneNumber = process.env.NEXT_PUBLIC_PHONE; // Replace with your actual WhatsApp number
+            try {
+                const phone = await getPhoneNumber();
                 
-                const bookingMessage = `Hotel Bhavani Udupi - Booking Request
+                const formData = new FormData(this);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const userPhone = formData.get('phone');
+                const roomType = formData.get('roomType');
+                const checkin = formData.get('checkin');
+                const checkout = formData.get('checkout');
+                const message = formData.get('message');
+
+                if (name && email && userPhone && roomType && checkin && checkout) {
+                    const bookingMessage = `Hotel Bhavani Udupi - Booking Request
 
 👤 Name: ${name}
 📧 Email: ${email}
-📱 Phone: ${phone}
+📱 Phone: ${userPhone}
 🏨 Room Type: ${roomType}
 📅 Check-in: ${checkin}
 📅 Check-out: ${checkout}
@@ -339,16 +367,20 @@ Please confirm availability and booking details.
 
 Thank you!`;
 
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(bookingMessage)}`;
-                window.open(whatsappURL, '_blank');
-                
-                // Navigate to success page
-                navigateToFormSuccess();
-                
-                // Reset form
-                this.reset();
-            } else {
-                alert('Please fill in all required fields.');
+                    const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(bookingMessage)}`;
+                    window.open(whatsappURL, '_blank');
+                    
+                    // Navigate to success page
+                    navigateToFormSuccess();
+                    
+                    // Reset form
+                    this.reset();
+                } else {
+                    alert('Please fill in all required fields.');
+                }
+            } catch (error) {
+                alert('Unable to process booking. Please try again.');
+                console.error('Booking error:', error);
             }
         });
     }
