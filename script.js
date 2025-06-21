@@ -272,7 +272,7 @@ if (checkinInput && checkoutInput) {
 
 // WhatsApp functionality
 function openWhatsApp(roomType = '', price = '') {
-    const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
+    const phoneNumber = '${process.env.phone}'; // Replace with your actual WhatsApp number
     let message = `Hello Hotel Bhavani Udupi!
 
 I would like to make a booking inquiry.`;
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = formData.get('message');
 
             if (name && email && phone && roomType && checkin && checkout) {
-                const phoneNumber = '917259468825'; // Replace with your actual WhatsApp number
+                const phoneNumber = '${process.env.phone}'; // Replace with your actual WhatsApp number
                 
                 const bookingMessage = `Hotel Bhavani Udupi - Booking Request
 
